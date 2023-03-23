@@ -8,6 +8,7 @@ class Board(models.Model):
     update_date = models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.subject
+        return self.id
 
 class Comment(models.Model): 
     board = models.ForeignKey(Board, on_delete=models.CASCADE)
