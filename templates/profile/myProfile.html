@@ -1,0 +1,110 @@
+{% load static %}
+{% include "navbar.html" %}
+<!doctype html>
+<html lang="ko">
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+<head>
+  <title>온라인 프로필</title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <nav>
+    <a href="https://github.com/2Kyoungh">GitHub</a>
+    <a href="/blogList.html">Blog</a>
+    <a href="/myProfile.html">AboutMe</a>
+  </nav>
+  <div id="container">
+    <!-- 사이드바 -->
+    <aside>
+        <div id="namecard">
+          <img src="images/v.jpg" alt="" width="200" height="230">
+          <h1>Kyounghun.Lee</h1>
+          <p>motto: "Now or Never"<br></p>
+
+        </div>
+        <div id="detail">
+          <p><em>ajtwl@naver.com</em></p>
+        </div>
+        <div id="sns">
+          <h2>SNS</h2>
+          <ul>
+            <li>
+              <a href="https://blog.naver.com/leekyoung_927" target="_blank">Naver Blog</a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/kyounghun_/">instagram</a>
+            </li>
+          </ul>
+        </div>
+    </aside>
+    
+    <div id="main">
+      <!-- 자기 소개 -->
+      <section>
+        <h2 class="subtitle">-</h2>
+        <p>기계공학을 전공하고 데이터 분석과 프로그래밍을 배우고 있습니다.<br>
+        <a href="/pythonEx.html">Python Example</a>
+        <a href="C:/Users/sylee/Documents/GitHub/MyWeb/pythonEx.html">sub</a>
+        </p>
+      </section>
+
+      <!-- 경력 -->
+      <section>
+        <h2 class="subtitle">Experience</h2>
+        <ul>
+          <li>현재
+            <ul>
+              <li>멀티캠퍼스 데이터분석&엔지니어 취업캠프 참여</li>
+            </ul>
+          </li>
+          <li>이전
+            <ul>
+              <li>2014-2021 UNIST(울산과기원) 기계항공공학부</li>
+              <li>2019-2021 육군 복무</li>
+              <li>2011-2014 동인천 고등학교</li>
+            </ul>
+          </li>
+          <li>프로젝트
+            <ul>
+              <li>2018.01-03 연구실 인턴 무인기 자율비행</li>
+            </ul>
+          </li>
+          <li>프리랜서
+            <ul>
+              <li>2022 벤츠 S클래스 테스트 드라이빙 참여</li>
+              <li>2021 국제 대기질 조사 캠페인 자료 측정</li>
+              <li>2021.01-03 종합학원 수학 강사</li>
+              <li>2017.02-2018.12 개인 과외 중,고등 수학,과학</li>
+              <li>2016.08-2017.02 수학학원 중,고등부 보조 강사</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 숙련도 -->
+      <section>
+        <h2 class="subtitle">Skills</h2>
+        <ol>
+          <li>개발언어
+            <ul>
+              
+              <li>Python</li>
+              
+              
+            </ul>
+          </li>
+          <li>DBMS
+            <ul>
+              <li>Mysql</li> 
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+    </div>
+
+  </div>
+</body>
+
+</html>

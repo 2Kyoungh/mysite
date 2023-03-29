@@ -41,7 +41,15 @@
     - 0323
     - 8. 댓글 구현하기
     - 0324
-    - 9. CSS bootstrap 적용
+    - 9. CSS bootstrap 적용 (스타일 적용)
     - 10. 게시글 등록 기능 추가 (Django {{form.as_p}})
     - 11. 게시글 등록 기능 구현 (Class form-group)
-
+    - 0327
+    - 12. Login, logout 구현
+    - 13. 회원가입 기능 추가
+    - 14. 게시판 페이징 적용
+    - 15. 템플릿 필터 적용
+    - 0328
+    - 16. 작성자 추가 및 표시하기
+    - 17. nav-bar myprofile 추가
+    - 

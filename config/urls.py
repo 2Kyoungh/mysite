@@ -17,7 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from bbsnote import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bbsnote/', include('bbsnote.urls')),
+    path('common/', include('common.urls')),
+    path('', views.index, name='index'),
+    path('myprofile/', include('myprofile.urls'))    
 ]
