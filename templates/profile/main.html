@@ -1,4 +1,5 @@
 {% load static %}
+{% include "navbar.html" %}
 <!doctype html>
 <html lang="ko">
 <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
@@ -10,18 +11,20 @@
 <body>
   <nav>
     <a href="{% url 'myprofile:main' %}">Home</a>
-    <a href="{% url 'myprofile:bloglist' %}">Blog</a>
-    <a href="{% url 'myprofile:myprofile' %}">AboutMe</a>
+    <a href="{% url 'myprofile:bloglist' %}">BlogSample1</a>
+    <a href="{% url 'myprofile:myprofile' %}">BlogSample2</a>
   </nav>
   <div id="container">
-    <h1>헤드라인</h1>
-    <h2>헤드라인2</h2>
-    <h3>헤드라인3</h3>
+    <h4>Home : 이 페이지로 이동</h4>
+    <h4>BlogSample1 : 작성한 프로필 페이지</h4>
+    <p>추후에 sample image 외부 링크 이미지로 대체하기</p>
+    <h4>BlogSample2 : 강사님 템플릿 css 내부 적용 후 Django 연결</h4>
+    <p>0329 nav bar 깨지는 현상 : css 중복적용된듯</p>
     <h4>내용</h4>
-    <h5>제일작은</h5>
-    <p>단락구분</p>
+    <h5>앞으로 할 것 : 객체 지향 python 했던 코드들 웹에 실행 되게 하기</h5>
+    <p></p>
     <hr>
-    <img src="images/v.jpg" width="400">
+    
 
 
   </div>

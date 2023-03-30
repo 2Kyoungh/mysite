@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import Board, Comment
 from django.utils import timezone
-from .forms import BoardForm
+from .forms import BoardForm, CommentForm
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 # Create your views here.
 
 def index(request):
@@ -49,5 +50,58 @@ def board_create(request):
         form = BoardForm()
     return render(request, 'bbsnote/board_form.html', {'form':form})
 
+@login_required(login_url='common:login')
+def board_modify(request, board_id):
+    board = get_object_or_404(Board, pk=board_id)
+    if request.user != board.author:
+        messages.error(request, '수정권한이 없습니다.')
+        return redirect('bbsnote:detail', board_id=board.id)
+    if request.method == "POST":
+        form = BoardForm(request.POST, instance=board)
+        if form.is_valid():
+            board = form.save(commit=False)
+            board.author = request.user
+            board.save()
+            return redirect('bbsnote:detail', board_id=board.id)
+        else:
+            form = BoardForm(instance=board)
+        context = {'form':form}
+        return render(request, 'bbsnote/board_form.html', context)
 
+@login_required(login_url='common:login')
+def board_delete(request, board_id):
+    board = get_object_or_404(Board, pk=board_id)
+    if request.user != board.author:
+        messages.error(request, '삭제권한이 없습니다.')
+        return redirect('bbsnote:detail', board_id=board.id)
+    board.delete()
+    return redirect('bbsnote:index') 
+
+@login_required(login_url='common:login')
+def comment_modify(request, comment_id):
+    comment = get_object_or_404(comment, pk=comment_id)
+    if request.user != comment.author:
+        messages.error(request, '수정권한이 없습니다.')
+        return redirect('bbsnote:detail', board_id=comment.board.id)
+    
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user
+            comment.save()
+            return redirect('bbsnote:detail', board_id=comment.board.id)
+    else:
+        form = CommentForm(instance=comment)
+    context = {'comment':comment, 'form':form}
+    return render(request, 'bbsnote/comment_form.html', context)
+
+@login_required(login_url='common:login')
+def comment_delete(request, comment_id):
+    Comment = get_object_or_404(Comment, pk=comment_id)
+    if request.user != comment.author:
+        messages.error(request, '삭제권한이 없습니다.')
+        return redirect('bbsnote:detail', comment_id=comment.id)
+    comment.delete()
+    return redirect('bbsnote:detail', board_id=comment.board.id)
     
